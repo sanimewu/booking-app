@@ -1,1 +1,48 @@
-<p>request works!</p>
+<div class="space-y-10">
+  <div class="text-2xl font-semibold">
+    Request
+  </div>
+  <div class="space-y-5">
+    <div class="text-lg font-semibold">Quick Stats</div>
+    <div class="grid grid-cols-4 gap-4">
+      <div class="py-5 px-10 bg-gray-50 rounded-xl space-y-2">
+        <div class="text-sm">Total Bookings</div>
+        <div class="text-3xl font-semibold">28,455</div>
+      </div>
+      <div class="py-5 px-10 bg-gray-50 rounded-xl space-y-2">
+        <div class="text-sm">Pending Approval</div>
+        <div class="text-3xl font-semibold text-red-500">120</div>
+      </div>
+      <div class="py-5 px-10 bg-gray-50 rounded-xl space-y-2">
+        <div class="text-sm">New Clients this month</div>
+        <div class="text-3xl font-semibold flex">89
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-500 ml-2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+          </svg>
+        </div>
+
+      </div>
+      <div class="py-5 px-10 bg-gray-50 rounded-xl space-y-2">
+        <div class="text-sm">Returning Clients</div>
+        <div class="text-3xl font-semibold flex">46%
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500 ml-2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-10">
+  <mat-tab-group>
+    <mat-tab label="booking">
+      <app-request-booking></app-request-booking>
+    </mat-tab>
+    <mat-tab label="enquiries">
+      <app-enquiries></app-enquiries>
+    </mat-tab>
+    <mat-tab label="services">
+      <app-services></app-services>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { BookingComponent } from './dashboard/sidebar/booking/booking.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {RequestBookingComponent} from './dashboard/sidebar/request/request-booking/request-booking.component';
+import {EnquiriesComponent} from './dashboard/sidebar/request/enquiries/enquiries.component';
+import {ServicesComponent} from './dashboard/sidebar/request/services/services.component';
 
 @NgModule({
   declarations: [
@@ -14,10 +19,15 @@ import { BookingComponent } from './dashboard/sidebar/booking/booking.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    RequestBookingComponent,
+    EnquiriesComponent,
+    ServicesComponent,
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
