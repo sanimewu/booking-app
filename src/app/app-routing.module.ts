@@ -7,19 +7,22 @@ import {BookingComponent} from './dashboard/sidebar/booking/booking.component';
 import {RequestComponent} from './dashboard/sidebar/request/request.component';
 import {AboutComponent} from './dashboard/sidebar/about/about.component';
 import {WelcomeComponent} from './dashboard/sidebar/welcome/welcome.component';
+import {HomepageComponent} from './homepage/homepage.component';
+import {FlightComponent} from './flight/flight.component';
 
 const routes: Routes = [
-  {path:'', component:DashboardComponent},
+  {path:'home', component:HomepageComponent},
   {path:'login', component:UserLoginComponent},
   {path:'signup', component:UserSignupComponent},
-  {path:'dashboard', component:DashboardComponent,
-    children:[
-      {path:'', component:WelcomeComponent},
-      {path:'request', component:RequestComponent},
-      {path:'booking', component:BookingComponent},
-      {path:'about', component:AboutComponent},
-    ]
-  },
+  {path:'flight', component:FlightComponent},
+  // {path:'dashboard', component:DashboardComponent,
+  //   children:[
+  //     {path:'', component:WelcomeComponent},
+  //     {path:'request', component:RequestComponent},
+  //     {path:'booking', component:BookingComponent},
+  //     {path:'about', component:AboutComponent},
+  //   ]
+  // },
 
 ];
 

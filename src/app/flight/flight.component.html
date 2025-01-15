@@ -1,0 +1,25 @@
+
+<div class="font-bold text-lg text-center py-5">
+  Welcome to Flight Booking
+</div>
+<div class="container">
+  <form [formGroup]="flightForm">
+    <div class="grid grid-cols-2 grid-rows-4 space-y-2">
+        <label>Departure:</label>
+        <input nz-input placeholder="Departure" nzSize="large" formControlName="departure" class="input-field"/>
+
+        <label>Arrival:</label>
+        <input nz-input placeholder="Arrival" nzSize="large" formControlName="arrival" class="input-field"/>
+
+        <label>Date:</label>
+        <input nz-input placeholder="Date" nzSize="large" formControlName="date" class="input-field"/>
+
+        <label>Passengers:</label>
+        <input nz-input placeholder="Passengers" nzSize="large" formControlName="passengerCount" class="input-field"/>
+
+    </div>
+
+    <button nz-button nzType="primary" nzDanger [disabled]="flightForm.invalid">Submit</button>
+  </form>
+
+</div>
