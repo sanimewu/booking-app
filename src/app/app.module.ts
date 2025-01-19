@@ -13,7 +13,11 @@ import {ServicesComponent} from './dashboard/sidebar/request/services/services.c
 import {NzButtonModule} from 'ng-zorro-antd/button';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-
+import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
+import { registerLocaleData } from '@angular/common';
+import localeZhCn from '@angular/common/locales/zh';
+import { NZ_I18N, en_US  } from 'ng-zorro-antd/i18n';
+registerLocaleData(localeZhCn);
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,10 +34,12 @@ import {CommonModule} from '@angular/common';
     EnquiriesComponent,
     ServicesComponent,
     CommonModule,
+    NzDatePickerModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: NZ_I18N, useValue: en_US  }
   ],
   bootstrap: [AppComponent]
 })
