@@ -10,6 +10,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {RequestBookingComponent} from './dashboard/sidebar/request/request-booking/request-booking.component';
 import {EnquiriesComponent} from './dashboard/sidebar/request/enquiries/enquiries.component';
 import {ServicesComponent} from './dashboard/sidebar/request/services/services.component';
+import {NzButtonModule} from 'ng-zorro-antd/button';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,12 @@ import {ServicesComponent} from './dashboard/sidebar/request/services/services.c
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
+    NzButtonModule,
     RequestBookingComponent,
     EnquiriesComponent,
     ServicesComponent,
+    CommonModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

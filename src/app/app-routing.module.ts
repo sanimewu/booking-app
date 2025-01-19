@@ -11,6 +11,7 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {FlightComponent} from './flight/flight.component';
 
 const routes: Routes = [
+  {path:'', component:WelcomeComponent},
   {path:'home', component:HomepageComponent},
   {path:'login', component:UserLoginComponent},
   {path:'signup', component:UserSignupComponent},

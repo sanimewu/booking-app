@@ -1,14 +1,24 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NzInputDirective} from 'ng-zorro-antd/input';
-import {NzButtonComponent} from 'ng-zorro-antd/button';
+import {NzButtonComponent, NzButtonModule} from 'ng-zorro-antd/button';
+import {NzOptionComponent, NzSelectComponent} from 'ng-zorro-antd/select';
+import {NzRadioComponent, NzRadioGroupComponent} from 'ng-zorro-antd/radio';
+import {NzIconDirective} from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-flight',
   imports: [
-    ReactiveFormsModule,
-    NzInputDirective,
     NzButtonComponent,
+    NzInputDirective,
+    ReactiveFormsModule,
+    NzButtonModule,
+    NzSelectComponent,
+    NzRadioGroupComponent,
+    NzRadioComponent,
+    NzOptionComponent,
+    NzIconDirective,
+
   ],
   templateUrl: './flight.component.html',
   styleUrl: './flight.component.scss'
