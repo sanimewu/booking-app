@@ -4,6 +4,7 @@ import {NzButtonComponent, NzButtonModule} from 'ng-zorro-antd/button';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzInputDirective} from 'ng-zorro-antd/input';
 import {NzDividerComponent} from 'ng-zorro-antd/divider';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -13,7 +14,8 @@ import {NzDividerComponent} from 'ng-zorro-antd/divider';
     NzIconModule,
     NzButtonModule,
     NzInputDirective,
-    NzDividerComponent
+    NzDividerComponent,
+    RouterLink
   ],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.scss'

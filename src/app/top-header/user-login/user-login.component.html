@@ -1,5 +1,5 @@
-<div class="flex justify-center py-20">
-  <div [formGroup]="loginForm" class="space-y-10">
+<div class="flex justify-center py-16">
+  <div [formGroup]="loginForm" class="space-y-10 bg-gray-50 p-10">
     <div class="flex-col space-y-2 text-center">
       <div class="font-bold text-2xl">Please Sign in</div>
       <div class="font-semibold text-md">You need to Sign in first to continue</div>
@@ -29,5 +29,9 @@
       <button class="button-submit" (click)="submitLogin()" [disabled]="loginForm.invalid">Sign In</button>
     </div>
 
+    <div class="text-center">
+      Don't have an account ?
+      <a [routerLink]="['/signup']" class="text-sky-500 font-semibold">Sign Up</a>
+    </div>
   </div>
 </div>

@@ -1,1 +1,43 @@
-<p>user-signup works!</p>
+<div class="flex justify-center py-16">
+  <div [formGroup]="signUpForm" class="space-y-10 bg-gray-50 p-10">
+    <div class="flex-col space-y-2 text-center">
+      <div class="font-bold text-2xl">Let’s Get Started</div>
+      <div class="font-semibold text-md">Create an account and get the Deals & Promotions news</div>
+    </div>
+
+    <div class="flex gap-5 justify-center">
+      <button nz-button nzType="default" nzSize="large">Google</button>
+      <button nz-button nzType="default" nzSize="large">Facebook</button>
+    </div>
+
+    <nz-divider nzText="Or Sign Up with"></nz-divider>
+
+    <div class="[&_label]:font-semibold text-md space-y-5">
+      <div class="space-y-1">
+        <label>Email</label>
+        <input nz-input nzSize="large" placeholder="example@gmail.com" formControlName="email" type="text" />
+      </div>
+
+      <div class="space-y-1">
+        <label>Phone</label>
+        <input nz-input nzSize="large" placeholder="Your Number" formControlName="phone" type="number" />
+      </div>
+
+      <div class="space-y-1">
+        <label>Password</label>
+        <input nz-input nzSize="large" placeholder="Your Password" formControlName="password" type="password" />
+      </div>
+
+    </div>
+
+    <div class="flex justify-center">
+      <button class="button-submit" (click)="submitLogin()" [disabled]="signUpForm.invalid">Sign In</button>
+    </div>
+
+    <div class="text-center">
+      Already have an account?
+      <a [routerLink]="['/login']" class="text-sky-500 font-semibold">Sign In</a>
+    </div>
+  </div>
+</div>
+
