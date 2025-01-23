@@ -5,9 +5,11 @@ import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzInputDirective} from 'ng-zorro-antd/input';
 import {NzDividerComponent} from 'ng-zorro-antd/divider';
 import {RouterLink} from '@angular/router';
+import { Auth, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-user-login',
+  standalone: true,
   imports: [
     ReactiveFormsModule,
     NzButtonComponent,
@@ -23,7 +25,7 @@ import {RouterLink} from '@angular/router';
 export class UserLoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth:Auth) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -31,6 +33,14 @@ export class UserLoginComponent {
   }
 
   submitLogin() {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(this.auth, provider)
+      .then((result) => {
+        console.log('User signed in:', result.user);
+      })
+      .catch((error) => {
+        console.error('Error during sign-in:', error);
+      });
     console.log(this.loginForm.value);
   }
 }

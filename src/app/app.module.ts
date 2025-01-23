@@ -17,6 +17,9 @@ import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
 import { registerLocaleData } from '@angular/common';
 import localeZhCn from '@angular/common/locales/zh';
 import { NZ_I18N, en_US  } from 'ng-zorro-antd/i18n';
+import { environment } from '../environment/environment';
+import {AngularFireModule} from '@angular/fire/compat';
+
 registerLocaleData(localeZhCn);
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ registerLocaleData(localeZhCn);
     EnquiriesComponent,
     ServicesComponent,
     CommonModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     provideClientHydration(withEventReplay()),
