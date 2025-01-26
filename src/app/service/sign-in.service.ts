@@ -13,7 +13,18 @@ export class SignInService {
     return from(this.auth.signInWithEmailAndPassword(
       params.email,params.password,
     ))
+  };
+
+  signUp(params:SignIn):Observable<any> {
+    return from(this.auth.createUserWithEmailAndPassword(
+      params.email, params.password,
+    ))
+  };
+
+  forgetPass(email:string):Observable<any> {
+    return from(this.auth.sendPasswordResetEmail(email));
   }
+
 }
 
 export interface SignIn {

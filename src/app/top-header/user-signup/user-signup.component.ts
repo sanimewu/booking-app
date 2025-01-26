@@ -4,7 +4,9 @@ import {NzDividerComponent} from "ng-zorro-antd/divider";
 import {NzInputDirective} from "ng-zorro-antd/input";
 import {NzWaveDirective} from "ng-zorro-antd/core/wave";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {SignInService} from '../../service/sign-in.service';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-user-signup',
@@ -22,15 +24,25 @@ import {RouterLink} from '@angular/router';
 export class UserSignupComponent {
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private signInService:SignInService,
+              private router:Router, private message: NzMessageService) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.maxLength(11)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  submitLogin() {
-    console.log(this.signUpForm.value);
+  submitSignUp() {
+    this.signInService.signUp(this.signUpForm.value).subscribe({
+      next: (result) => {
+        if(result){
+          this.message.success('Sign up successfully');
+          this.router.navigate(['/login']).then();
+        }
+      },
+      error: (error) => {
+        this.message.error('Sign up failed');
+      }
+    })
   }
 }

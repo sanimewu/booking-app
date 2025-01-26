@@ -19,11 +19,6 @@
       </div>
 
       <div class="space-y-1">
-        <label>Phone</label>
-        <input nz-input nzSize="large" placeholder="Your Number" formControlName="phone" type="number" />
-      </div>
-
-      <div class="space-y-1">
         <label>Password</label>
         <input nz-input nzSize="large" placeholder="Your Password" formControlName="password" type="password" />
       </div>
@@ -31,7 +26,7 @@
     </div>
 
     <div class="flex justify-center">
-      <button nz-button nzSize="large" nzShape="round" (click)="submitLogin()" [disabled]="signUpForm.invalid">Sign In</button>
+      <button nz-button nzSize="large" nzShape="round" (click)="submitSignUp()" [disabled]="signUpForm.invalid">Sign Up</button>
     </div>
 
     <div class="text-center">

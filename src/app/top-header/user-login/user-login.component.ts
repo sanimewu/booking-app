@@ -36,7 +36,7 @@ export class UserLoginComponent {
     });
   }
 
-  submitLogin() {
+  submitSignIn() {
     this.signInService.signIn(this.loginForm.value).subscribe({
       next:(result)=>{
         if(result){
@@ -46,6 +46,20 @@ export class UserLoginComponent {
       },
       error:(error)=>{
         this.message.warning("Email and password is not valid");
+        console.log(error);
+      }
+    })
+  }
+
+  forgetPass() {
+    console.log('sasasasa',this.loginForm.value);
+    this.signInService.forgetPass(this.loginForm.value.email).subscribe({
+      next:(result)=>{
+        console.log(result);
+        this.message.success("check mail");
+      },
+      error:(error)=>{
+        this.message.warning("Email is not valid");
         console.log(error);
       }
     })

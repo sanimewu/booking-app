@@ -22,11 +22,14 @@
         <label>Password</label>
         <input nz-input nzSize="large" placeholder="Your Password" formControlName="password" type="password" />
       </div>
+    </div>
 
+    <div class="text-center">
+      <button nz-button nzType="link" (click)="forgetPass()">Forget Password</button>
     </div>
 
     <div class="flex justify-center">
-      <button nz-button nzSize="large" nzShape="round" (click)="submitLogin()" [disabled]="loginForm.invalid">Sign In</button>
+      <button nz-button nzSize="large" nzShape="round" (click)="submitSignIn()" [disabled]="loginForm.invalid">Sign In</button>
     </div>
 
     <div class="text-center">
