@@ -4,8 +4,10 @@ import {NzButtonComponent, NzButtonModule} from 'ng-zorro-antd/button';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzInputDirective} from 'ng-zorro-antd/input';
 import {NzDividerComponent} from 'ng-zorro-antd/divider';
-import {RouterLink} from '@angular/router';
-import { Auth, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import {Router, RouterLink} from '@angular/router';
+import {SignInService} from '../../service/sign-in.service';
+import {NzMessageService} from 'ng-zorro-antd/message';
+
 
 @Component({
   selector: 'app-user-login',
@@ -25,7 +27,9 @@ import { Auth, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 export class UserLoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth:Auth) {
+  constructor(private fb: FormBuilder, private signInService: SignInService, private router: Router,
+              private message: NzMessageService) {
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -33,14 +37,17 @@ export class UserLoginComponent {
   }
 
   submitLogin() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(this.auth, provider)
-      .then((result) => {
-        console.log('User signed in:', result.user);
-      })
-      .catch((error) => {
-        console.error('Error during sign-in:', error);
-      });
-    console.log(this.loginForm.value);
+    this.signInService.signIn(this.loginForm.value).subscribe({
+      next:(result)=>{
+        if(result){
+          this.message.success("Successfully logged in");
+          this.router.navigate(['/home']).then();
+        }
+      },
+      error:(error)=>{
+        this.message.warning("Email and password is not valid");
+        console.log(error);
+      }
+    })
   }
 }

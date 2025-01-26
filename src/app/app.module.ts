@@ -19,6 +19,7 @@ import localeZhCn from '@angular/common/locales/zh';
 import { NZ_I18N, en_US  } from 'ng-zorro-antd/i18n';
 import { environment } from '../environment/environment';
 import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 
 registerLocaleData(localeZhCn);
 @NgModule({
@@ -38,7 +39,8 @@ registerLocaleData(localeZhCn);
     ServicesComponent,
     CommonModule,
     NzDatePickerModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),
