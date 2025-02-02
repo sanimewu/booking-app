@@ -28,6 +28,7 @@ export class UserSignupComponent {
               private router:Router, private message: NzMessageService) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.maxLength(11)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -45,4 +46,6 @@ export class UserSignupComponent {
       }
     })
   }
+
+
 }

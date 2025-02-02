@@ -52,7 +52,6 @@ export class UserLoginComponent {
   }
 
   forgetPass() {
-    console.log('sasasasa',this.loginForm.value);
     this.signInService.forgetPass(this.loginForm.value.email).subscribe({
       next:(result)=>{
         console.log(result);
@@ -61,6 +60,20 @@ export class UserLoginComponent {
       error:(error)=>{
         this.message.warning("Email is not valid");
         console.log(error);
+      }
+    })
+  }
+
+  signUpWithGoogle() {
+    this.signInService.googleSignUp().subscribe({
+      next: (result:any) => {
+        if(result){
+          this.message.success('Sign up with Google successfully');
+          this.router.navigate(['/home']).then();
+        }
+      },
+      error:(error:any)=>{
+        this.message.error('Sign up failed');
       }
     })
   }

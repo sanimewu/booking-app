@@ -1,10 +1,10 @@
 <div class="h-[calc(100vh-40px)] bg-gradient-to-b from-sky-300 to-sky-100">
-  <div class="h-full flex justify-center items-center text-3xl font-black">
-    <div class="">
+  <div class="h-full flex flex-col justify-center items-center text-3xl font-black space-y-4">
+    <div>
       Welcome to Booking App!
-      <button nz-button nzDanger nzType="primary" nzShape="round">Get Started</button>
     </div>
-    <div class="flex-col">
+    <div>
+      <button [routerLink]="['/login']" nz-button nzSize="large" nzDanger nzType="primary" nzShape="round">Get Started</button>
     </div>
   </div>
 
