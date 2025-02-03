@@ -1,4 +1,3 @@
-
 <div class="font-bold text-lg text-center py-5">
   Welcome to Flight Booking
 </div>
@@ -7,7 +6,7 @@
 
     <div class="grid grid-cols-2 py-10">
       <div class="grid justify-start">
-        <nz-radio-group  formControlName="routeType" nzButtonStyle="outline">
+        <nz-radio-group formControlName="routeType" nzButtonStyle="outline">
           <label nz-radio-button nzValue="A">One Way</label>
           <label nz-radio-button nzValue="B">Round Trip</label>
           <label nz-radio-button nzValue="C">Multi-City</label>
@@ -15,7 +14,7 @@
       </div>
 
       <div class="flex justify-end space-x-4">
-        <div class="">
+        <div>
           <nz-select nzAllowClear formControlName="travelType">
             <nz-option nzLabel="Adult" nzValue="Adult"></nz-option>
             <nz-option nzLabel="Children" nzValue="Children"></nz-option>

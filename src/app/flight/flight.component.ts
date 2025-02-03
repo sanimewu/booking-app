@@ -4,9 +4,7 @@ import {NzInputDirective} from 'ng-zorro-antd/input';
 import {NzButtonComponent, NzButtonModule} from 'ng-zorro-antd/button';
 import {NzOptionComponent, NzSelectComponent} from 'ng-zorro-antd/select';
 import {NzRadioComponent, NzRadioGroupComponent} from 'ng-zorro-antd/radio';
-import {NzIconDirective} from 'ng-zorro-antd/icon';
-import {NzDatePickerComponent, NzDatePickerModule} from 'ng-zorro-antd/date-picker';
-import {BrowserModule} from '@angular/platform-browser';
+import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
 import {CommonModule} from '@angular/common';
 
 @Component({
@@ -29,7 +27,7 @@ export class FlightComponent {
      departure: ['', Validators.required],
      arrival: ['', Validators.required],
      date: [null, Validators.required],
-     passengerCount: [1, [Validators.required, Validators.min(1)]],
+     passengerCount: [1, [Validators.required, Validators.min(1), Validators.max(100)]],
      travelType: ['Children', Validators.required],
      classType: ['Economy', Validators.required],
     });
